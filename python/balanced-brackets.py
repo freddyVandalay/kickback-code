@@ -3,22 +3,21 @@ Balanced bracket evaluation
 """
 
 
-def is_balanced_expression(input_string):
+def is_balanced_expression(test_str):
 	"""
 	This function evaluates a string in regards to balanced brackets.
 
-	:param input_string: string expression to be evaluated
-	:type input_string: str
+	:param test_str: string expression to be evaluated
+	:type test_str: str
 	:return: Boolean expression where True = balanced string and False = unbalanced string
 	:rtype: bool
 	"""
-	# Initiate list object
 	stack = list()
 	# Define open/closing brackets
-	open_brackets = ["(", "{", "["]
-	closing_brackets = [")", "}", "]"]
+	open_brackets = ["(", "{", "["]  # List operation: add
+	closing_brackets = [")", "}", "]"]  # List operation: remove
 
-	for ch in input_string:
+	for ch in test_str:
 		if ch in open_brackets:
 			stack.append(ch)
 		elif ch in closing_brackets:
@@ -26,7 +25,7 @@ def is_balanced_expression(input_string):
 				stack.pop()
 			else:
 				return False
-
+	# Evaluate if stack/list is empty. If so: balanced and returns True
 	return bool(stack) is False
 
 
